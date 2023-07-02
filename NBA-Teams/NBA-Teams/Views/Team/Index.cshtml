@@ -1,0 +1,32 @@
+﻿@model List<Team>
+
+@{
+    ViewData["Title"] = "NBA-Teams";
+}
+
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Abbreviation</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var team in Model)
+                {
+                    <tr>
+                        <th scope="row">@team.Id</th>
+                        <td>@team.Abbreviation</td>
+                        <td>@team.Name</td>
+                        <td><a asp-action="Details" asp-controller="Team" asp-route-id="@team.Id">Details</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
